@@ -154,9 +154,9 @@ function Home() {
         {books.map((book, index) => (
           <div
             className="rounded-lg shadow-xl flex flex-col space-y-4 border-black"
-            key={index} style={{display:"flex",flexDirection:"column",justifyContent:"center", alignItems:"center",border:"1px solid black",width:"300px",margin:"8px", padding:"6px"}}
+            key={index} style={{display:"flex",flexDirection:"column",justifyContent:"center", border:"1px solid black",width:"300px",margin:"8px", padding:"6px"}}
           >
-            <div className="w-full h-56 overflow-hidden rounded-lg">
+            <div className="w-full h-56 overflow-hidden rounded-lg" style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
               <img
                 src={book.base64image}
                 alt=""
@@ -164,14 +164,14 @@ function Home() {
                 style={{width:"300px",height:"300px",objectFit:"cover", borderRadius:"1rem"}}
               />
             </div>
-            <div className="p-5" style={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
-              <h2 className="text-xl font-bold line-clamp-1 text-[#474747] ">
+            <div className="p-5" style={{display:"flex", justifyContent:"center", alignItems:"flex-start", flexDirection:"column",marginLeft:"1rem"}}>
+              <h2 className="text-xl font-bold line-clamp-1 text-[#474747] "style={{maxWidth:"18rem", overflow:"hidden", maxHeight:"2rem"}}>
                 {book.name}
               </h2>
               <span className="text-gray-600 mt-2 font-semibold">
                 {book.category}
               </span>
-              <p className=" line-clamp-2 h-14 mt-2">{book.description}</p>
+              <p className=" line-clamp-2 h-14 mt-2" style={{maxWidth:"18rem", overflow:"hidden", maxHeight:"1.5rem"}}>{book.description}</p>
               <p className=" mb-2 text-xl text-gray-500">
                 MRP
                 <span className="mx-1">&#8377;</span>
@@ -188,7 +188,8 @@ function Home() {
                   marginTop: "8px",
                   fontWeight: "bold",
                   width:"13rem",
-                  marginBottom:"2rem"
+                  marginBottom:"2rem",
+                  
                 }}
                 fullWidth
                 onClick={() => addToCart(book)}
